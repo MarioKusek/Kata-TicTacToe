@@ -1,9 +1,13 @@
 package hr.fer.tictactoe.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class TicTacToeTest {
 
@@ -11,7 +15,7 @@ public class TicTacToeTest {
 	
 	@BeforeEach
 	void newGame() {
-		game = new TicTacToe();
+		game = new TicTacToe(null);
 	}
 
 	@Test
@@ -46,5 +50,15 @@ public class TicTacToeTest {
 		assertThat(game.getFieldValue("b1")).isEqualTo("x");
 		assertThat(game.getFieldValue("a2")).isEqualTo("o");
 		assertThat(game.getFieldValue("b3")).isEqualTo("x");
+	}
+	
+	@Test
+	void invalidPositionOutOfRange() throws Exception {
+		View view = Mockito.mock(View.class);
+		game = new TicTacToe(view);
+
+		game.play("a4");
+		
+		verify(view).displayInvalidPosition("a4");
 	}
 }

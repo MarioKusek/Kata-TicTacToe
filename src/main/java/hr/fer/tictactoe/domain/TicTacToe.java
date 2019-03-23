@@ -2,11 +2,19 @@ package hr.fer.tictactoe.domain;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class TicTacToe {
-	String currentPlayer = "o";
-	Map<String, String> board = new HashMap<>();
+	private static Pattern POSITION_PATTERN = Pattern.compile("\\A[abc][123]\\z");
+	
+	private String currentPlayer = "o";
+	private Map<String, String> board = new HashMap<>();
+	private View view;
 
+	public TicTacToe(View view) {
+		this.view = view;
+	}
+		
 	public String getFieldValue(String position) {
 		String value = board.get(position);
 		if(value == null)
@@ -16,8 +24,16 @@ public class TicTacToe {
 	}
 
 	public void play(String position) {
-		board.put(position, currentPlayer);
-		changePlayer();
+		if(validPosition(position)) {
+			board.put(position, currentPlayer);
+			changePlayer();
+		} else {
+			view.displayInvalidPosition(position);
+		}
+	}
+
+	private boolean validPosition(String position) {
+		return POSITION_PATTERN.matcher(position).lookingAt();
 	}
 
 	private void changePlayer() {

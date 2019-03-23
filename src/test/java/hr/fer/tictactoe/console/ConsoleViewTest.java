@@ -1,14 +1,12 @@
 package hr.fer.tictactoe.console;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import org.junit.jupiter.api.Test;
 
-import hr.fer.tictactoe.domain.Board;
 import hr.fer.tictactoe.domain.TicTacToe;
 
 public class ConsoleViewTest {
@@ -19,7 +17,7 @@ public class ConsoleViewTest {
 		
 		view.displayInvalidPosition("a6");
 		
-		assertThat(outBuffer.toString()).isEqualTo("Wrong position 'a6'. You can enter values from 'a1' to 'c3'");
+		assertThat(outBuffer.toString()).isEqualTo("Wrong position 'a6'. You can enter values from 'a1' to 'c3'\n");
 	}
 
 	@Test
@@ -29,7 +27,7 @@ public class ConsoleViewTest {
 		
 		view.displayPlayerTurn("x");
 		
-		assertThat(outBuffer.toString()).isEqualTo("Next player is 'x'.");
+		assertThat(outBuffer.toString()).isEqualTo("Next player is 'x'.\n");
 	}
 
 	@Test
@@ -55,7 +53,7 @@ public class ConsoleViewTest {
 		
 		view.displayWinner("o");
 
-		assertThat(outBuffer.toString()).isEqualTo("The winner is player 'o'!!!!");
+		assertThat(outBuffer.toString()).isEqualTo("The winner is player 'o'!!!!\n");
 	}
 
 	@Test
@@ -66,7 +64,5 @@ public class ConsoleViewTest {
 		view.displayEndOfGameWithNoWinner();
 		
 		assertThat(outBuffer.toString()).isEqualTo("End of game!!! No winners!!!\n");
-		
 	}
-	
 }

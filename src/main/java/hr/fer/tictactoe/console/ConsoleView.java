@@ -13,11 +13,11 @@ public class ConsoleView {
 	}
 
 	public void displayInvalidPosition(String position) {
-		out.printf("Wrong position '%s'. You can enter values from 'a1' to 'c3'", position);
+		out.printf("Wrong position '%s'. You can enter values from 'a1' to 'c3'\n", position);
 	}
 	
 	public void displayPlayerTurn(String nextPlayer) {
-		out.printf("Next player is '%s'.", nextPlayer);
+		out.printf("Next player is '%s'.\n", nextPlayer);
 	}
 
 	public void displayBoard(Board board) {
@@ -30,7 +30,7 @@ public class ConsoleView {
 	}
 	
 	public void displayWinner(String winner) {
-		out.printf("The winner is player '%s'!!!!", winner);
+		out.printf("The winner is player '%s'!!!!\n", winner);
 	}
 	
 	public void displayEndOfGameWithNoWinner() {

@@ -116,6 +116,6 @@ public class TicTacToe implements Board {
 	}
 
 	public boolean isFinishedGame() {
-		return detectWithNoWinnerEnd();
+		return detectWithNoWinnerEnd() || detectWinner();
 	}
 }

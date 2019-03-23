@@ -300,4 +300,13 @@ public class TicTacToeTest {
 		
 		assertThat(game.isFinishedGame()).isTrue();		
 	}
+
+	@Test
+	void checkEndOfGameWithWinner() throws Exception {
+		game = new TicTacToe("ooo"
+                           + "xx "
+                           + "   ", view);
+		
+		assertThat(game.isFinishedGame()).isTrue();		
+	}
 }

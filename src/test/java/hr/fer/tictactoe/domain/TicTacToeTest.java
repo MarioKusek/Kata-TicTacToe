@@ -151,21 +151,24 @@ public class TicTacToeTest {
 		}
 	}
 	
-	@Test
-	void newGameWithStartingPosition() throws Exception {
-		//   o x
-		// x o  
-		//     o
-		game = new TicTacToe(" oxxo   o", view);
-		
-		assertThat(game.getFieldValue("a1")).isEqualTo(" ");
-		assertThat(game.getFieldValue("a2")).isEqualTo("o");
-		assertThat(game.getFieldValue("a3")).isEqualTo("x");
-		assertThat(game.getFieldValue("b1")).isEqualTo("x");
-		assertThat(game.getFieldValue("b2")).isEqualTo("o");
-		assertThat(game.getFieldValue("b3")).isEqualTo(" ");
-		assertThat(game.getFieldValue("c1")).isEqualTo(" ");
-		assertThat(game.getFieldValue("c2")).isEqualTo(" ");
-		assertThat(game.getFieldValue("c3")).isEqualTo("o");
+	@Nested
+	class NewGameBoardInitialization {
+		@Test
+		void checkPositions() throws Exception {
+			//   o x
+			// x o  
+			//     o
+			game = new TicTacToe(" oxxo   o", view);
+			
+			assertThat(game.getFieldValue("a1")).isEqualTo(" ");
+			assertThat(game.getFieldValue("a2")).isEqualTo("o");
+			assertThat(game.getFieldValue("a3")).isEqualTo("x");
+			assertThat(game.getFieldValue("b1")).isEqualTo("x");
+			assertThat(game.getFieldValue("b2")).isEqualTo("o");
+			assertThat(game.getFieldValue("b3")).isEqualTo(" ");
+			assertThat(game.getFieldValue("c1")).isEqualTo(" ");
+			assertThat(game.getFieldValue("c2")).isEqualTo(" ");
+			assertThat(game.getFieldValue("c3")).isEqualTo("o");
+		}
 	}
 }

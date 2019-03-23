@@ -1,0 +1,31 @@
+Inbox:
+
+Test cases:
+	- inserting valid move
+		- move is valid if position is empty
+		- move is invalid if user enters invalid field
+			- then the same player needs to enter move
+	- inserting invalid move
+
+
+Integration:
+	- start app
+	- write field
+         1 2 3
+		a | | 
+		 -----
+		b | |
+		 -----
+		c | |
+	- write whose turn is
+	  Player (o) insert move
+	- player inserts: a1
+	- detect end
+		- if end is detected (no empty fields or we have a winner)
+	- if it is end
+		- write winner or draw
+		- exit program
+	- if not end
+		- change player
+		- repeat with writing field 
+	

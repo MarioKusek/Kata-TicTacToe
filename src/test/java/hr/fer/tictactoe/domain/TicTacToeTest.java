@@ -107,6 +107,13 @@ public class TicTacToeTest {
 			inOrder.verify(view).displayPlayerTurn("o");
 			inOrder.verify(view).displayPlayerTurn("x");
 		}
+	
+		@Test
+		void afterInvalidPlay() throws Exception {
+			game.play("invalild position");
+			
+			verify(view).displayPlayerTurn("o");
+		}
 	}
 	
 	@Nested

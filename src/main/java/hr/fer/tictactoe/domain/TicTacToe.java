@@ -24,12 +24,18 @@ public class TicTacToe {
 	}
 
 	public void play(String position) {
-		if(isPositionInRange(position)) {
+		if(!isPositionInRange(position)) {
+			view.displayInvalidPosition(position);
+		} else if (isPositionOccupied(position)) {
+			view.displayPositionAlreadyTaken(position);
+		} else {
 			board.put(position, currentPlayer);
 			changePlayer();
-		} else {
-			view.displayInvalidPosition(position);
 		}
+	}
+
+	private boolean isPositionOccupied(String position) {
+		return board.containsKey(position);
 	}
 
 	private boolean isPositionInRange(String position) {

@@ -65,4 +65,12 @@ public class TicTacToeTest {
 		
 		verify(view).displayInvalidPosition("a4");
 	}
+
+	@Test
+	void invalidPositionSamePositionTwice() throws Exception {
+		game.play("a1");
+		game.play("a1");
+		
+		verify(view).displayPositionAlreadyTaken("a1");
+	}
 }

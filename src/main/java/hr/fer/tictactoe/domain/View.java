@@ -4,6 +4,6 @@ public interface View {
 
 	public void displayInvalidPosition(String position);
 
-	public void positionAlreadyTaken(String string);
+	public void displayPositionAlreadyTaken(String position);
 
 }

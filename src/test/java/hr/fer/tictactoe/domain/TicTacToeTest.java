@@ -2,12 +2,14 @@ package hr.fer.tictactoe.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.mockito.InOrder;
 import org.mockito.Mockito;
 
 public class TicTacToeTest {
@@ -86,5 +88,17 @@ public class TicTacToeTest {
 		game.play("a1");
 		
 		verify(view).displayPlayerTurn("x");
+	}
+
+	@Test
+	void displayPlayerTurnAfterEachPlay() throws Exception {
+		game.play("a1");
+		game.play("a2");
+		game.play("a3");
+		
+		InOrder inOrder = inOrder(view);
+		inOrder.verify(view).displayPlayerTurn("x");
+		inOrder.verify(view).displayPlayerTurn("o");
+		inOrder.verify(view).displayPlayerTurn("x");
 	}
 }

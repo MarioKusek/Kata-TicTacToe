@@ -255,5 +255,25 @@ public class TicTacToeTest {
 			
 			verify(view).displayWinner("o");
 		}
-	}
+
+		@Test
+		void detectingWinnerInDiagonal1() throws Exception {
+			game = new TicTacToe("ox "
+					           + " ox"
+					           + "   ", view);
+			game.play("c3");
+			
+			verify(view).displayWinner("o");
+		}
+
+		@Test
+		void detectingWinnerInDiagonal2() throws Exception {
+			game = new TicTacToe(" ox"
+					           + "oxo"
+					           + "   ", view);
+			game.play("c1");
+			
+			verify(view).displayWinner("x");
+		}
+}
 }

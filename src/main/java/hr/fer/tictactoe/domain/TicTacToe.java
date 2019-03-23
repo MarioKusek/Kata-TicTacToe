@@ -69,6 +69,8 @@ public class TicTacToe implements Board {
 				|| areSameInPositions("a1", "b1", "c1")
 				|| areSameInPositions("a2", "b2", "c2")
 				|| areSameInPositions("a3", "b3", "c3")
+				|| areSameInPositions("a1", "b2", "c3")
+				|| areSameInPositions("a3", "b2", "c1")
 		) {
 			return true;
 		} else {

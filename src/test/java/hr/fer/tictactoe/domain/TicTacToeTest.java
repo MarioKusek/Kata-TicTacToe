@@ -2,21 +2,25 @@ package hr.fer.tictactoe.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TicTacToeTest {
 
+	private TicTacToe game;
+	
+	@BeforeEach
+	void newGame() {
+		game = new TicTacToe();
+	}
+
 	@Test
 	void emptyFieldPositionInNewGame() throws Exception {
-		TicTacToe game = new TicTacToe();
-		
 		assertThat(game.getFieldValue("a1")).isEqualTo("");
 	}
 
 	@Test
 	void enterFieldPosition() throws Exception {
-		TicTacToe game = new TicTacToe();
-		
 		game.play("a1");
 		
 		assertThat(game.getFieldValue("a1")).isEqualTo("o");
@@ -24,8 +28,6 @@ public class TicTacToeTest {
 
 	@Test
 	void enterPositionForTwoPlayers() throws Exception {
-		TicTacToe game = new TicTacToe();
-		
 		game.play("a1");
 		game.play("b1");
 		
@@ -35,8 +37,6 @@ public class TicTacToeTest {
 
 	@Test
 	void enterPositionsForMultipleMoves() throws Exception {
-		TicTacToe game = new TicTacToe();
-		
 		game.play("a1");
 		game.play("b1");
 		game.play("a2");

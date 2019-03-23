@@ -178,5 +178,13 @@ public class TicTacToeTest {
 			
 			verify(view).displayPlayerTurn("o");
 		}
+
+		@Test
+		void checkNextPlayerX() throws Exception {
+			game = new TicTacToe("o", view);
+			game.start();
+			
+			verify(view).displayPlayerTurn("x");
+		}
 	}
 }

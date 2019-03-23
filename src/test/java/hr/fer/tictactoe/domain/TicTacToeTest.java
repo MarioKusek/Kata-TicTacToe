@@ -27,23 +27,22 @@ public class TicTacToeTest {
 		game = new TicTacToe(view);
 	}
 	
-	@Nested
-	class ChackingEnteringValidPositions {
-
-		@Test
-		void emptyFieldPositionInNewGame() throws Exception {
-			assertThat(game.getFieldValue("a1")).isEqualTo(" ");
-		}
+	@Test
+	void checkEmptyFieldPositionInNewGame() throws Exception {
+		assertThat(game.getFieldValue("a1")).isEqualTo(" ");
+	}
 	
+	@Nested
+	class EnteringValidPosition {
 		@Test
-		void enterFieldPosition() throws Exception {
+		void once() throws Exception {
 			game.play("a1");
 			
 			assertThat(game.getFieldValue("a1")).isEqualTo("o");
 		}
 	
 		@Test
-		void enterPositionForTwoPlayers() throws Exception {
+		void forTwoPlayers() throws Exception {
 			game.play("a1");
 			game.play("b1");
 			
@@ -52,7 +51,7 @@ public class TicTacToeTest {
 		}
 	
 		@Test
-		void enterPositionsForMultipleMoves() throws Exception {
+		void multipleTimes() throws Exception {
 			game.play("a1");
 			game.play("b1");
 			game.play("a2");
@@ -65,39 +64,42 @@ public class TicTacToeTest {
 		}
 	}
 	
-	@Test
-	void invalidPositionOutOfRange() throws Exception {
-		game.play("a4");
-		
-		verify(view).displayInvalidPosition("a4");
-	}
-
-	@Test
-	void invalidPositionSamePositionTwice() throws Exception {
-		game.play("a1");
-		game.play("a1");
-		
-		verify(view).displayPositionAlreadyTaken("a1");
+	@Nested
+	class EnteringInvalidPositions {
+		@Test
+		void outOfRange() throws Exception {
+			game.play("a4");
+			
+			verify(view).displayInvalidPosition("a4");
+		}
+	
+		@Test
+		void samePositionTwice() throws Exception {
+			game.play("a1");
+			game.play("a1");
+			
+			verify(view).displayPositionAlreadyTaken("a1");
+		}
 	}
 	
 	@Nested
-	class DisplayPlayer {
+	class DisplayNextPlayer {
 		@Test
-		void displayPlayerTurnInTheBeginningOfGame() throws Exception {
+		void inTheBeginningOfGame() throws Exception {
 			game.start();
 			
 			verify(view).displayPlayerTurn("o");
 		}
 	
 		@Test
-		void displayPlayerTurnAfterPlay() throws Exception {
+		void afterOnePlay() throws Exception {
 			game.play("a1");
 			
 			verify(view).displayPlayerTurn("x");
 		}
 	
 		@Test
-		void displayPlayerTurnAfterEachPlay() throws Exception {
+		void afterEachPlay() throws Exception {
 			game.play("a1");
 			game.play("a2");
 			game.play("a3");

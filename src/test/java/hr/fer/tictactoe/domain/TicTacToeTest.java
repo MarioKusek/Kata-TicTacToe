@@ -133,5 +133,12 @@ public class TicTacToeTest {
 			
 			verify(view, times(3)).displayBoard(game);
 		}
+
+		@Test
+		void afterInvalidPlay() throws Exception {
+			game.play("invalid position");
+			
+			verify(view).displayBoard(game);
+		}
 	}
 }

@@ -80,4 +80,11 @@ public class TicTacToeTest {
 		
 		verify(view).displayPlayerTurn("o");
 	}
+
+	@Test
+	void displayPlayerTurnAfterPlay() throws Exception {
+		game.play("a1");
+		
+		verify(view).displayPlayerTurn("x");
+	}
 }

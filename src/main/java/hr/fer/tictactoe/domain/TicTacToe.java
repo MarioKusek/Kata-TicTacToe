@@ -32,6 +32,8 @@ public class TicTacToe {
 			board.put(position, currentPlayer);
 			changePlayer();
 		}
+		
+		view.displayPlayerTurn(currentPlayer);
 	}
 
 	private boolean isPositionOccupied(String position) {

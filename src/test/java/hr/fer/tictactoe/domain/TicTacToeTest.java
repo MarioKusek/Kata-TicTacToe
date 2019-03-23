@@ -112,7 +112,7 @@ public class TicTacToeTest {
 	
 		@Test
 		void afterInvalidPlay() throws Exception {
-			game.play("invalild position");
+			game.play("invalid position");
 			
 			verify(view).displayPlayerTurn("o");
 		}

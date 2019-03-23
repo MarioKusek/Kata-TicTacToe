@@ -21,4 +21,15 @@ public class TicTacToeTest {
 		
 		assertThat(game.getFieldValue("a1")).isEqualTo("o");
 	}
+
+	@Test
+	void enterPositionForTwoPlayers() throws Exception {
+		TicTacToe game = new TicTacToe();
+		
+		game.play("a1");
+		game.play("b1");
+		
+		assertThat(game.getFieldValue("a1")).isEqualTo("o");
+		assertThat(game.getFieldValue("b1")).isEqualTo("x");
+	}
 }

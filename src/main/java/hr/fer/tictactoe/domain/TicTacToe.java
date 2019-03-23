@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 public class TicTacToe {
-	private static Pattern POSITION_PATTERN = Pattern.compile("\\A[abc][123]\\z");
+	public static Pattern POSITION_PATTERN = Pattern.compile("\\A[abc][123]\\z");
 	
 	private String currentPlayer = "o";
 	private Map<String, String> board = new HashMap<>();

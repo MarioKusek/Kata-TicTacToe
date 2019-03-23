@@ -65,6 +65,7 @@ public class TicTacToe implements Board {
 	private boolean detectWinner() {
 		if(areSameInPositions("a1", "a2", "a3") 
 				|| areSameInPositions("b1", "b2", "b3")
+				|| areSameInPositions("c1", "c2", "c3")
 		) {
 			return true;
 		} else {

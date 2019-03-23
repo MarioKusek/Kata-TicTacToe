@@ -2,7 +2,7 @@ Inbox:
 
 Test cases:
 	- inserting valid move
-		- move is valid if position is empty and is valid position
+		+ move is valid if position is empty and is valid position
 		- move is invalid if user enters invalid field
 			- then the same player needs to enter move
 	- inserting invalid move
@@ -21,7 +21,7 @@ Integration:
 		c | |
 	- write whose turn is
 	  Player (o) insert move
-	- player inserts: a1
+	+ player inserts: a1
 	- detect end
 		- if end is detected (no empty fields or we have a winner)
 	- if it is end

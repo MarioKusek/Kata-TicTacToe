@@ -73,4 +73,11 @@ public class TicTacToeTest {
 		
 		verify(view).displayPositionAlreadyTaken("a1");
 	}
+	
+	@Test
+	void displayPlayerTurnInTheBeginningOfGame() throws Exception {
+		game.start();
+		
+		verify(view).displayPlayerTurn("o");
+	}
 }

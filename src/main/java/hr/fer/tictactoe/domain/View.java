@@ -6,4 +6,6 @@ public interface View {
 
 	public void displayPositionAlreadyTaken(String position);
 
+	public void displayPlayerTurn(String nextPlayer);
+
 }

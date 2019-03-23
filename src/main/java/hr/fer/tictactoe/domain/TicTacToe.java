@@ -48,4 +48,8 @@ public class TicTacToe {
 		else
 			currentPlayer = "o";
 	}
+
+	public void start() {
+		view.displayPlayerTurn(currentPlayer);
+	}
 }

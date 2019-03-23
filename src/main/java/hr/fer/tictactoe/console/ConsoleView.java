@@ -32,4 +32,9 @@ public class ConsoleView {
 	public void displayWinner(String winner) {
 		out.printf("The winner is player '%s'!!!!", winner);
 	}
+	
+	public void displayEndOfGameWithNoWinner() {
+		out.println("End of game!!! No winners!!!");
+	}
+
 }

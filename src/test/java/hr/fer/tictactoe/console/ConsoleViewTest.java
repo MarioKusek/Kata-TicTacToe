@@ -56,7 +56,17 @@ public class ConsoleViewTest {
 		view.displayWinner("o");
 
 		assertThat(outBuffer.toString()).isEqualTo("The winner is player 'o'!!!!");
+	}
 
+	@Test
+	void displayEndOfGameWithNoWinner() throws Exception {
+		StringWriter outBuffer = new StringWriter();
+		ConsoleView view = new ConsoleView(new PrintWriter(outBuffer));
+		
+		view.displayEndOfGameWithNoWinner();
+		
+		assertThat(outBuffer.toString()).isEqualTo("End of game!!! No winners!!!\n");
+		
 	}
 	
 }

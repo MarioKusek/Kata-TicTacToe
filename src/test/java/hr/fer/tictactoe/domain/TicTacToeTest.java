@@ -12,4 +12,13 @@ public class TicTacToeTest {
 		
 		assertThat(game.getFieldValue("a1")).isEqualTo("");
 	}
+
+	@Test
+	void enterFieldPosition() throws Exception {
+		TicTacToe game = new TicTacToe();
+		
+		game.play("a1");
+		
+		assertThat(game.getFieldValue("a1")).isEqualTo("o");
+	}
 }

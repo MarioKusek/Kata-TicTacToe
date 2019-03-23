@@ -24,7 +24,7 @@ public class TicTacToe {
 	}
 
 	public void play(String position) {
-		if(validPosition(position)) {
+		if(isPositionInRange(position)) {
 			board.put(position, currentPlayer);
 			changePlayer();
 		} else {
@@ -32,7 +32,7 @@ public class TicTacToe {
 		}
 	}
 
-	private boolean validPosition(String position) {
+	private boolean isPositionInRange(String position) {
 		return POSITION_PATTERN.matcher(position).lookingAt();
 	}
 

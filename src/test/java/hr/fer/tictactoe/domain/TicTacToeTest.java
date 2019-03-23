@@ -225,5 +225,35 @@ public class TicTacToeTest {
 			
 			verify(view).displayWinner("o");
 		}
+
+		@Test
+		void detectingWinnerInFirstColumn() throws Exception {
+			game = new TicTacToe("ox "
+					           + "ox "
+					           + "   ", view);
+			game.play("c1");
+			
+			verify(view).displayWinner("o");
+		}
+
+		@Test
+		void detectingWinnerInSecondColumn() throws Exception {
+			game = new TicTacToe("ox "
+					           + "oxo"
+					           + "   ", view);
+			game.play("c2");
+			
+			verify(view).displayWinner("x");
+		}
+
+		@Test
+		void detectingWinnerInThirdColumn() throws Exception {
+			game = new TicTacToe(" xo"
+					           + " xo"
+					           + "   ", view);
+			game.play("c3");
+			
+			verify(view).displayWinner("o");
+		}
 	}
 }

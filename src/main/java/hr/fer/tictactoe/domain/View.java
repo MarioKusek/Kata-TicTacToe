@@ -13,5 +13,4 @@ public interface View {
 	public void displayWinner(String winner);
 
 	public void displayEndOfGameWithNoWinner();
-
 }

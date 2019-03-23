@@ -1,8 +1,9 @@
 package hr.fer.tictactoe.domain;
 
-public class View {
+public interface View {
 
-	public void displayInvalidPosition(String position) {
-	}
+	public void displayInvalidPosition(String position);
+
+	public void positionAlreadyTaken(String string);
 
 }

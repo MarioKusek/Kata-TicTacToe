@@ -54,7 +54,7 @@ public class TicTacToe implements Board {
 				view.displayWinner(currentPlayer);
 				return;
 			} else {
-				if(detectEnd()) {
+				if(detectWithNoWinnerEnd()) {
 					view.displayEndOfGameWithNoWinner();
 					return;
 				} else {
@@ -67,7 +67,7 @@ public class TicTacToe implements Board {
 		view.displayPlayerTurn(currentPlayer);
 	}
 
-	private boolean detectEnd() {
+	private boolean detectWithNoWinnerEnd() {
 		return board.size() == 9;
 	}
 

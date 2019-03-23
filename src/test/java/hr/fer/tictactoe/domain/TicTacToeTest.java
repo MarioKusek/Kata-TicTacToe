@@ -61,7 +61,6 @@ public class TicTacToeTest {
 	
 	@Test
 	void invalidPositionOutOfRange() throws Exception {
-
 		game.play("a4");
 		
 		verify(view).displayInvalidPosition("a4");

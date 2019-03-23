@@ -1,0 +1,21 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+sourceCompatibility = JavaVersion.VERSION_11 
+targetCompatibility = JavaVersion.VERSION_11
+
+dependencies {
+
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.0'
+    // parametrized tests
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.4.0'
+
+    // Mockito
+    testImplementation 'org.mockito:mockito-core:2.24.0'
+    // AssertJ
+    testImplementation 'org.assertj:assertj-core:3.12.0'
+}

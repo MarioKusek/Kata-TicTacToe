@@ -2,6 +2,7 @@ package hr.fer.tictactoe.domain;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
@@ -62,7 +63,9 @@ public class TicTacToe implements Board {
 	}
 
 	private boolean detectWinner() {
-		if(areSameInPositions("a1", "a2", "a3")) {
+		if(areSameInPositions("a1", "a2", "a3") 
+				|| areSameInPositions("b1", "b2", "b3")
+		) {
 			return true;
 		} else {
 			return false;
@@ -71,8 +74,9 @@ public class TicTacToe implements Board {
 
 	private boolean areSameInPositions(String position1, String position2, String position3) {
 		String value = board.get(position1);
-		return value.equals(board.get(position2)) &&
-				value.equals(board.get(position3));
+		return value != null &&
+				Objects.equals(value, board.get(position2)) &&
+				Objects.equals(value, board.get(position3));
 	}
 
 	private boolean isPositionOccupied(String position) {

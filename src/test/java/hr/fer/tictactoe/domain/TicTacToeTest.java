@@ -205,5 +205,15 @@ public class TicTacToeTest {
 			
 			verify(view).displayWinner("o");
 		}
+
+		@Test
+		void detectingWinnerInSecondRow() throws Exception {
+			game = new TicTacToe("oo "
+					           + "xx "
+					           + "o", view);
+			game.play("b3");
+			
+			verify(view).displayWinner("x");
+		}
 	}
 }

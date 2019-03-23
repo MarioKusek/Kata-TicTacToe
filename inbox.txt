@@ -11,7 +11,7 @@ Assumptions:
 	- first player is o
 
 Integration:
-	- start app
+	+ start app
 	- write field
          1 2 3
 		a | | 
@@ -19,8 +19,8 @@ Integration:
 		b | |
 		 -----
 		c | |
-	- write whose turn is
-	  Player (o) insert move
+	+ write whose turn is
+	  "Player (o) insert move"
 	+ player inserts: a1
 	- detect end
 		- if end is detected (no empty fields or we have a winner)

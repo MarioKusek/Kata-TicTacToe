@@ -3,8 +3,6 @@ package hr.fer.tictactoe.domain;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import java.util.function.IntPredicate;
 import java.util.regex.Pattern;
 
 public class TicTacToe implements Board {

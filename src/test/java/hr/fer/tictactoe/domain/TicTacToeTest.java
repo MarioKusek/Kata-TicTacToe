@@ -288,12 +288,16 @@ public class TicTacToeTest {
 	}
 
 	@Test
+	void checkNotEndOfGameInNewGame() throws Exception {
+		assertThat(game.isFinishedGame()).isFalse();
+	}
+	
+	@Test
 	void checkEndOfGameWithoutWinner() throws Exception {
 		game = new TicTacToe("oxo"
                            + "xxo"
                            + "oox", view);
 		
-		assertThat(game.isFinishedGame()).isTrue();
-		
+		assertThat(game.isFinishedGame()).isTrue();		
 	}
 }

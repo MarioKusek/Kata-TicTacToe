@@ -116,5 +116,12 @@ public class TicTacToeTest {
 			
 			verify(view).displayBoard(game);
 		}
+
+		@Test
+		void afterOnePlay() throws Exception {
+			game.play("a1");
+			
+			verify(view).displayBoard(game);
+		}
 	}
 }

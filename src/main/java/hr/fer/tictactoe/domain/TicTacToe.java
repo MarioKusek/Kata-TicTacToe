@@ -33,6 +33,7 @@ public class TicTacToe implements Board {
 			changePlayer();
 		}
 		
+		view.displayBoard(this);
 		view.displayPlayerTurn(currentPlayer);
 	}
 

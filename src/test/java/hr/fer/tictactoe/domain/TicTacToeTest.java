@@ -195,4 +195,15 @@ public class TicTacToeTest {
 			verify(view).displayPlayerTurn("o");
 		}
 	}
+	
+	@Nested
+	class DetectingEndOfGame {
+		@Test
+		void detectingWinnerInFirstRow() throws Exception {
+			game = new TicTacToe("oo xx", view);
+			game.play("a3");
+			
+			verify(view).displayWinner("o");
+		}
+	}
 }

@@ -10,4 +10,6 @@ public interface View {
 
 	public void displayBoard(Board board);
 
+	public void displayWinner(String winner);
+
 }

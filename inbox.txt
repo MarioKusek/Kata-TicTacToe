@@ -7,6 +7,8 @@ Test cases:
 			- then the same player needs to enter move
 	- inserting invalid move
 
+Assumptions:
+	- first player is o
 
 Integration:
 	- start app

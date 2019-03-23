@@ -10,6 +10,6 @@ public class TicTacToeTest {
 	void emptyFieldPositionInNewGame() throws Exception {
 		TicTacToe game = new TicTacToe();
 		
-		assertThat(game.getFieldValue("a1")).isEqualTo("o");
+		assertThat(game.getFieldValue("a1")).isEqualTo("");
 	}
 }

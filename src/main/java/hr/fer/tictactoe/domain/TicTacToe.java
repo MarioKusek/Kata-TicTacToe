@@ -15,6 +15,20 @@ public class TicTacToe implements Board {
 		this.view = view;
 	}
 		
+	public TicTacToe(String stringBoard, View view) {
+		this.view = view;
+		for (int i = 0; i < stringBoard.length(); i++) {
+			if(stringBoard.charAt(i) != ' ') {
+				int column = i % 3;
+				int row = i / 3;
+				
+				String position = "" + (char)(row + 'a') + (char)(column + '1');
+				
+				board.put(position, Character.toString(stringBoard.charAt(i)));
+			}
+		}
+	}
+
 	public String getFieldValue(String position) {
 		String value = board.get(position);
 		if(value == null)

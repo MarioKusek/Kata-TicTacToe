@@ -6,7 +6,10 @@ import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Map;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
@@ -28,7 +31,7 @@ public class TicTacToeTest {
 
 		@Test
 		void emptyFieldPositionInNewGame() throws Exception {
-			assertThat(game.getFieldValue("a1")).isEqualTo("");
+			assertThat(game.getFieldValue("a1")).isEqualTo(" ");
 		}
 	
 		@Test
@@ -102,6 +105,16 @@ public class TicTacToeTest {
 			inOrder.verify(view).displayPlayerTurn("x");
 			inOrder.verify(view).displayPlayerTurn("o");
 			inOrder.verify(view).displayPlayerTurn("x");
+		}
+	}
+	
+	@Nested
+	class DisplayBoard {
+		@Test
+		void inTheBeginningOfGame() throws Exception {
+			game.start();
+			
+			verify(view).displayBoard(game);
 		}
 	}
 }

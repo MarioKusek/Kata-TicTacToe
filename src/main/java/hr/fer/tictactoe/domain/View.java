@@ -8,4 +8,6 @@ public interface View {
 
 	public void displayPlayerTurn(String nextPlayer);
 
+	public void displayBoard(Board board);
+
 }

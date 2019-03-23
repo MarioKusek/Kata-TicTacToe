@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-public class TicTacToe {
+public class TicTacToe implements Board {
 	public static Pattern POSITION_PATTERN = Pattern.compile("\\A[abc][123]\\z");
 	
 	private String currentPlayer = "o";
@@ -18,7 +18,7 @@ public class TicTacToe {
 	public String getFieldValue(String position) {
 		String value = board.get(position);
 		if(value == null)
-			return "";
+			return " ";
 		else 
 			return value;
 	}
@@ -52,6 +52,7 @@ public class TicTacToe {
 	}
 
 	public void start() {
+		view.displayBoard(this);
 		view.displayPlayerTurn(currentPlayer);
 	}
 }

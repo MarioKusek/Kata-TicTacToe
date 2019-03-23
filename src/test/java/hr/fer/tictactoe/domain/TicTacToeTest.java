@@ -76,29 +76,32 @@ public class TicTacToeTest {
 		verify(view).displayPositionAlreadyTaken("a1");
 	}
 	
-	@Test
-	void displayPlayerTurnInTheBeginningOfGame() throws Exception {
-		game.start();
-		
-		verify(view).displayPlayerTurn("o");
-	}
-
-	@Test
-	void displayPlayerTurnAfterPlay() throws Exception {
-		game.play("a1");
-		
-		verify(view).displayPlayerTurn("x");
-	}
-
-	@Test
-	void displayPlayerTurnAfterEachPlay() throws Exception {
-		game.play("a1");
-		game.play("a2");
-		game.play("a3");
-		
-		InOrder inOrder = inOrder(view);
-		inOrder.verify(view).displayPlayerTurn("x");
-		inOrder.verify(view).displayPlayerTurn("o");
-		inOrder.verify(view).displayPlayerTurn("x");
+	@Nested
+	class DisplayPlayer {
+		@Test
+		void displayPlayerTurnInTheBeginningOfGame() throws Exception {
+			game.start();
+			
+			verify(view).displayPlayerTurn("o");
+		}
+	
+		@Test
+		void displayPlayerTurnAfterPlay() throws Exception {
+			game.play("a1");
+			
+			verify(view).displayPlayerTurn("x");
+		}
+	
+		@Test
+		void displayPlayerTurnAfterEachPlay() throws Exception {
+			game.play("a1");
+			game.play("a2");
+			game.play("a3");
+			
+			InOrder inOrder = inOrder(view);
+			inOrder.verify(view).displayPlayerTurn("x");
+			inOrder.verify(view).displayPlayerTurn("o");
+			inOrder.verify(view).displayPlayerTurn("x");
+		}
 	}
 }

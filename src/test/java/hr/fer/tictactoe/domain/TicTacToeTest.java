@@ -286,4 +286,14 @@ public class TicTacToeTest {
 
 		verify(view).displayEndOfGameWithNoWinner();
 	}
+
+	@Test
+	void checkEndOfGameWithoutWinner() throws Exception {
+		game = new TicTacToe("oxo"
+                           + "xxo"
+                           + "oox", view);
+		
+		assertThat(game.isFinishedGame()).isTrue();
+		
+	}
 }

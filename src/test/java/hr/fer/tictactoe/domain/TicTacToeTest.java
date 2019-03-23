@@ -13,10 +13,12 @@ import org.mockito.Mockito;
 public class TicTacToeTest {
 
 	private TicTacToe game;
+	private View view;
 
 	@BeforeEach
 	void newGame() {
-		game = new TicTacToe(null);
+		view = Mockito.mock(View.class);
+		game = new TicTacToe(view);
 	}
 	
 	@Nested
@@ -59,8 +61,6 @@ public class TicTacToeTest {
 	
 	@Test
 	void invalidPositionOutOfRange() throws Exception {
-		View view = Mockito.mock(View.class);
-		game = new TicTacToe(view);
 
 		game.play("a4");
 		

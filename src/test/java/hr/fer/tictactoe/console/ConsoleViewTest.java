@@ -1,6 +1,7 @@
 package hr.fer.tictactoe.console;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -47,5 +48,15 @@ public class ConsoleViewTest {
 				"c  | |o\n");
 	}
 	
+	@Test
+	void displayWinner() throws Exception {
+		StringWriter outBuffer = new StringWriter();
+		ConsoleView view = new ConsoleView(new PrintWriter(outBuffer));
+		
+		view.displayWinner("o");
+
+		assertThat(outBuffer.toString()).isEqualTo("The winner is player 'o'!!!!");
+
+	}
 	
 }

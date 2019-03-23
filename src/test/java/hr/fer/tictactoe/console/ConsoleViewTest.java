@@ -65,4 +65,14 @@ public class ConsoleViewTest {
 		
 		assertThat(outBuffer.toString()).isEqualTo("End of game!!! No winners!!!\n");
 	}
+
+	@Test
+	void displayPositionAlreadyTaken() throws Exception {
+		StringWriter outBuffer = new StringWriter();
+		ConsoleView view = new ConsoleView(new PrintWriter(outBuffer));
+		
+		view.displayPositionAlreadyTaken("a1");
+		
+		assertThat(outBuffer.toString()).isEqualTo("Position 'a1' is already taken!\n");
+	}
 }

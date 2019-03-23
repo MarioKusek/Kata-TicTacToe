@@ -170,5 +170,13 @@ public class TicTacToeTest {
 			assertThat(game.getFieldValue("c2")).isEqualTo(" ");
 			assertThat(game.getFieldValue("c3")).isEqualTo("o");
 		}
+
+		@Test
+		void checkNextPlayerWithEmptyBoard() throws Exception {
+			game = new TicTacToe("", view);
+			game.start();
+			
+			verify(view).displayPlayerTurn("o");
+		}
 	}
 }

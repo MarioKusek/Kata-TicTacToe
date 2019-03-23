@@ -13,4 +13,9 @@ public class ConsoleView {
 	public void displayInvalidPosition(String position) {
 		out.printf("Wrong position '%s'. You can enter values from 'a1' to 'c3'", position);
 	}
+	
+	public void displayPlayerTurn(String nextPlayer) {
+		out.printf("Next player is '%s'.", nextPlayer);
+	}
+
 }

@@ -17,4 +17,14 @@ public class ConsoleViewTest {
 		
 		assertThat(outBuffer.toString()).isEqualTo("Wrong position 'a6'. You can enter values from 'a1' to 'c3'");
 	}
+
+	@Test
+	void displayPlayerTurn() throws Exception {
+		StringWriter outBuffer = new StringWriter();
+		ConsoleView view = new ConsoleView(new PrintWriter(outBuffer));
+		
+		view.displayPlayerTurn("x");
+		
+		assertThat(outBuffer.toString()).isEqualTo("Next player is 'x'.");
+	}
 }

@@ -3,6 +3,7 @@ package hr.fer.tictactoe.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -122,6 +123,15 @@ public class TicTacToeTest {
 			game.play("a1");
 			
 			verify(view).displayBoard(game);
+		}
+
+		@Test
+		void afterEachPlay() throws Exception {
+			game.play("a1");
+			game.play("a2");
+			game.play("a3");
+			
+			verify(view, times(3)).displayBoard(game);
 		}
 	}
 }

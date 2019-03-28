@@ -20,25 +20,29 @@ public class ConsoleViewTest {
 		view = new ConsoleView(new PrintWriter(outBuffer));
 	}
 
+	private String getCapturedOutput() {
+		return outBuffer.toString();
+	}
+	
 	@Test
 	void displayInvalidPosition() throws Exception {
 		view.displayInvalidPosition("a6");
 		
-		assertThat(outBuffer.toString()).isEqualTo("Wrong position 'a6'. You can enter values from 'a1' to 'c3'\n");
+		assertThat(getCapturedOutput()).isEqualTo("Wrong position 'a6'. You can enter values from 'a1' to 'c3'\n");
 	}
 
 	@Test
 	void displayPlayerTurn() throws Exception {
 		view.displayPlayerTurn("x");
 		
-		assertThat(outBuffer.toString()).isEqualTo("Next player is 'x'.\n");
+		assertThat(getCapturedOutput()).isEqualTo("Next player is 'x'.\n");
 	}
 
 	@Test
 	void displayBoard() throws Exception {
 		view.displayBoard(new TicTacToe("oo xx   o", null));
 
-		assertThat(outBuffer.toString()).isEqualTo(
+		assertThat(getCapturedOutput()).isEqualTo(
 				"  1 2 3\n" + 
 				"a o|o| \n" + 
 				"  -----\n" + 
@@ -51,21 +55,21 @@ public class ConsoleViewTest {
 	void displayWinner() throws Exception {
 		view.displayWinner("o");
 
-		assertThat(outBuffer.toString()).isEqualTo("The winner is player 'o'!!!!\n");
+		assertThat(getCapturedOutput()).isEqualTo("The winner is player 'o'!!!!\n");
 	}
 
 	@Test
 	void displayEndOfGameWithNoWinner() throws Exception {
 		view.displayEndOfGameWithNoWinner();
 		
-		assertThat(outBuffer.toString()).isEqualTo("End of game!!! No winners!!!\n");
+		assertThat(getCapturedOutput()).isEqualTo("End of game!!! No winners!!!\n");
 	}
 
 	@Test
 	void displayPositionAlreadyTaken() throws Exception {
 		view.displayPositionAlreadyTaken("a1");
 		
-		assertThat(outBuffer.toString()).isEqualTo("Position 'a1' is already taken!\n");
+		assertThat(getCapturedOutput()).isEqualTo("Position 'a1' is already taken!\n");
 	}
 }
 

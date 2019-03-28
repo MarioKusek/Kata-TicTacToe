@@ -11,7 +11,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		TicTacToe game = new TicTacToe(
-				new ConsoleView(new PrintWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8))));
+				new ConsoleView(new PrintWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8), true)));
 		
 		game.start();
 		try(Scanner scanner = new Scanner(System.in)) {

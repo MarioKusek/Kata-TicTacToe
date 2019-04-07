@@ -1,6 +1,7 @@
 plugins {
 	id 'java'
     id 'eclipse'
+    id 'com.adarshr.test-logger' version '1.6.0'
 }
 
 repositories {
@@ -19,4 +20,8 @@ dependencies {
     testImplementation 'org.mockito:mockito-core:2.24.0'
     // AssertJ
     testImplementation 'org.assertj:assertj-core:3.12.0'
+}
+
+test {
+    useJUnitPlatform()
 }
